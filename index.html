@@ -6,142 +6,355 @@
 
 <title>Family TV Guide</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
 
-body{
-    background: linear-gradient(180deg, #1a1a1a, #0f0f0f);
-    color:#f5f5f5;
-    font-family: "Segoe UI", Arial, sans-serif;
-    max-width:900px;
-    margin:auto;
-    padding:40px;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
+
+body{
+
+    font-family:Inter,Segoe UI,Arial,sans-serif;
+
+    background:
+    radial-gradient(circle at top,#2a2a2a 0%,#151515 45%,#090909 100%);
+
+    color:#f5f5f5;
+
+    max-width:1000px;
+
+    margin:auto;
+
+    padding:40px;
+
+}
+
+/* ---------- HEADER ---------- */
 
 h1{
-    color:#ff5555;
+
     text-align:center;
-    font-size:2.3rem;
+
+    color:#ff5555;
+
+    font-size:2.7rem;
+
     text-shadow:
-        0 0 8px rgba(255,0,0,.35);
+    0 0 10px rgba(255,80,80,.35);
+
 }
 
-table{
-    width:100%;
-    border-collapse:collapse;
-    overflow:hidden;
-    border-radius:12px;
+.subtitle{
+
+    text-align:center;
+
+    color:#999;
+
+    margin-top:10px;
+
+    margin-bottom:35px;
+
+    letter-spacing:1px;
+
+}
+
+/* ---------- DASHBOARD ---------- */
+
+.stats{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:35px;
+
+}
+
+.card{
+
+    width:150px;
+
     background:#202020;
-    box-shadow:0 10px 30px rgba(0,0,0,.4);
+
+    border-radius:15px;
+
+    padding:18px;
+
+    text-align:center;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.35);
+
+    transition:.25s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.number{
+
+    display:block;
+
+    font-size:2rem;
+
+    color:#ff5555;
+
+    font-weight:700;
+
+}
+
+.label{
+
+    color:#999;
+
+    margin-top:6px;
+
+}
+
+/* ---------- TABLE ---------- */
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    overflow:hidden;
+
+    border-radius:15px;
+
+    background:#202020;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.45);
+
 }
 
 th{
+
     background:#303030;
-    color:white;
+
+    padding:16px;
+
     text-align:left;
-    padding:14px;
+
     font-size:15px;
+
+}
+
+th:nth-child(2),
+th:nth-child(3){
+
+    text-align:center;
+
 }
 
 td{
-    padding:14px;
-    border-bottom:1px solid #3d3d3d;
+
+    padding:18px;
+
+    border-bottom:1px solid #3c3c3c;
+
+}
+
+td:nth-child(2),
+td:nth-child(3){
+
+    text-align:center;
+
+}
+
+tr{
+
+    transition:.2s;
+
+    border-left:4px solid transparent;
+
 }
 
 tr:nth-child(even){
+
     background:#262626;
+
 }
 
 tr:hover{
-    background:#3a3a3a;
-    transition:.25s;
+
+    background:#363636;
+
+    border-left:4px solid #ff5555;
+
 }
 
-a{
-    color:#6db8ff;
-    text-decoration:none;
+.show{
+
+    font-size:1.05rem;
+
+    font-weight:600;
+
 }
 
-a:hover{
-    text-decoration:underline;
-}
+/* ---------- BADGES ---------- */
 
 .badge{
+
     display:inline-block;
-    padding:4px 10px;
+
+    padding:5px 12px;
+
     border-radius:20px;
+
     font-size:.85rem;
-    font-weight:bold;
+
+    font-weight:700;
+
 }
 
 .prime{
+
     background:#00A8E1;
+
     color:white;
+
 }
 
 .hulu{
+
     background:#1CE783;
+
     color:black;
+
 }
 
 .apple{
+
     background:#555;
+
     color:white;
+
 }
 
-.disney{
-    background:#113CCF;
-    color:white;
-}
+.netflix{
 
-.paramount{
-    background:#0064FF;
-    color:white;
-}
+    background:#E50914;
 
-.peacock{
-    background:#F5C542;
-    color:black;
+    color:white;
+
 }
 
 .max{
+
     background:#6C3EFF;
+
     color:white;
-}
-    
-.netflix{
-    background:#E50914;
-    color:white;
+
 }
 
+.disney{
+
+    background:#113CCF;
+
+    color:white;
+
+}
+
+.peacock{
+
+    background:#F5C542;
+
+    color:black;
+
+}
+
+.paramount{
+
+    background:#0064FF;
+
+    color:white;
+
+}
+
+/* ---------- STATUS ---------- */
+
 .watching{
-    color:#58d26a;
+
+    color:#5ad46c;
+
     font-weight:bold;
+
 }
 
 .finished{
+
     color:#4da3ff;
+
     font-weight:bold;
+
 }
 
 .waiting{
+
     color:#ffb84d;
+
     font-weight:bold;
+
 }
+
+/* ---------- FOOTER ---------- */
+
+footer{
+
+    margin-top:40px;
+
+    text-align:center;
+
+    color:#666;
+
+    font-size:.9rem;
+
+}
+
+/* ---------- MOBILE ---------- */
 
 @media(max-width:700px){
 
-    body{
-        padding:20px;
-    }
+body{
 
-    th, td{
-        padding:10px;
-        font-size:.9rem;
-    }
+padding:20px;
 
-    h1{
-        font-size:1.7rem;
-    }
+}
+
+.card{
+
+width:135px;
+
+}
+
+h1{
+
+font-size:2rem;
+
+}
+
+th,td{
+
+padding:12px;
+
+font-size:.9rem;
+
+}
 
 }
 
@@ -153,6 +366,39 @@ a:hover{
 
 <h1>📺 Family TV Guide</h1>
 
+<p class="subtitle">
+What We're Currently Watching
+</p>
+
+<div class="stats">
+
+<div class="card">
+<span class="number">6</span>
+<span class="label">Watching</span>
+</div>
+
+<div class="card">
+<span class="number">2</span>
+<span class="label">Prime</span>
+</div>
+
+<div class="card">
+<span class="number">2</span>
+<span class="label">Apple TV+</span>
+</div>
+
+<div class="card">
+<span class="number">1</span>
+<span class="label">Hulu</span>
+</div>
+
+<div class="card">
+<span class="number">1</span>
+<span class="label">Netflix</span>
+</div>
+
+</div>
+
 <table>
 
 <tr>
@@ -162,42 +408,48 @@ a:hover{
 </tr>
 
 <tr>
-<td>The Agency</td>
+<td class="show">The Agency</td>
 <td><span class="badge prime">Prime</span></td>
-<td><span class="watching">Watching</span></td>
+<td><span class="watching">🟢 Watching</span></td>
 </tr>
 
 <tr>
-<td>Ride or Die</td>
+<td class="show">Ride or Die</td>
 <td><span class="badge prime">Prime</span></td>
-<td><span class="watching">Watching</span></td>
+<td><span class="watching">🟢 Watching</span></td>
 </tr>
 
 <tr>
-<td>High Country</td>
+<td class="show">High Country</td>
 <td><span class="badge hulu">Hulu</span></td>
-<td><span class="watching">Watching</span></td>
+<td><span class="watching">🟢 Watching</span></td>
 </tr>
 
 <tr>
-<td>Silo</td>
+<td class="show">Silo</td>
 <td><span class="badge apple">Apple TV+</span></td>
-<td><span class="watching">Watching</span></td>
+<td><span class="watching">🟢 Watching</span></td>
 </tr>
 
 <tr>
-<td>Lucky</td>
+<td class="show">Lucky</td>
 <td><span class="badge apple">Apple TV+</span></td>
-<td><span class="watching">Watching</span></td>
+<td><span class="watching">🟢 Watching</span></td>
 </tr>
-    
+
 <tr>
-<td>Legends</td>
+<td class="show">Legends</td>
 <td><span class="badge netflix">Netflix</span></td>
-<td><span class="watching">Watching</span></td>
+<td><span class="watching">🟢 Watching</span></td>
 </tr>
 
 </table>
+
+<footer>
+
+Last Updated • July 23, 2026
+
+</footer>
 
 </body>
 </html>
